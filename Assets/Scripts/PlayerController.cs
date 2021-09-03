@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     
     public float speed = 4000f;
     public Rigidbody move;
+    private int score = 0;
     
     ///<summary>Initializing game</summary>
     void Start()
@@ -35,5 +36,15 @@ public class PlayerController : MonoBehaviour
             move.AddForce(0, 0, -speed * Time.deltaTime);
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Pickup")
+        {
+            score += 1;
+            Debug.Log("Score: " + score);
+            other.gameObject.SetActive(false);
+        }
     }
 }
