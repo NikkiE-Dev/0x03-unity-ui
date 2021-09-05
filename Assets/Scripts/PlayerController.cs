@@ -18,21 +18,29 @@ public class PlayerController : MonoBehaviour
         move = GetComponent<Rigidbody> ();
     }
 
+    void Update()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
     void FixedUpdate()
     {
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
             move.AddForce(-speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
             move.AddForce(speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow))
         {
             move.AddForce(0, 0, speed * Time.deltaTime);
         }
-        if (Input.GetKey("s"))
+        if (Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow))
         {
             move.AddForce(0, 0, -speed * Time.deltaTime);
         }
@@ -51,7 +59,6 @@ public class PlayerController : MonoBehaviour
         {
             health -= 1;
             Debug.Log("Health: " + health);
-            other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "Goal")
         {
