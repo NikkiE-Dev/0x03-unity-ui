@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody move;
     public int health = 5;
     private int score = 0;
+    public Text scoreText;
     
     ///<summary>Initializing game</summary>
     void Start()
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Pickup")
         {
             score += 1;
-            Debug.Log("Score: " + score);
+            SetScoreText();
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "Trap")
@@ -65,5 +67,9 @@ public class PlayerController : MonoBehaviour
             health -= 1;
             Debug.Log("You win!");
         }
+    }
+    void SetScoreText()
+    {
+        scoreText.text = string.Format("Score: {0}", score);
     }
 }
