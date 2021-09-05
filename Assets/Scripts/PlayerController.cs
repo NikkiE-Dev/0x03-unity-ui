@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     
     public float speed = 4000f;
     public Rigidbody move;
+    public int health = 5;
     private int score = 0;
     
     ///<summary>Initializing game</summary>
@@ -44,6 +45,12 @@ public class PlayerController : MonoBehaviour
         {
             score += 1;
             Debug.Log("Score: " + score);
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "Trap")
+        {
+            health -= 1;
+            Debug.Log("Health: " + health);
             other.gameObject.SetActive(false);
         }
     }
