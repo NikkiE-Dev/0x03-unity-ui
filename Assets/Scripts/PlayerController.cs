@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log("Game Over!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            winloseBG.gameObject.SetActive(true);
+            winloseBG.color = UnityEngine.Color.red;
+            winloseText.color = UnityEngine.Color.white;
+            winloseText.text = string.Format("Game Over!");
+            StartCoroutine(LoadScene(2));
         }
     }
     void FixedUpdate()
@@ -81,5 +84,10 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = string.Format("Health: {0}", health);
+    }
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
