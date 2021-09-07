@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
             winloseText.text = string.Format("Game Over!");
             StartCoroutine(LoadScene(3));
         }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
     void FixedUpdate()
     {
