@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public int health = 5;
     public Text scoreText;
     public Text healthText;
+    public Text winloseText;
+    public Image winloseBG;
     private int score = 0;
     
     
@@ -66,8 +68,10 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Goal")
         {
-            health -= 1;
-            Debug.Log("You win!");
+            winloseBG.gameObject.SetActive(true);
+            winloseBG.color = UnityEngine.Color.green;
+            winloseText.color = UnityEngine.Color.black;
+            winloseText.text = string.Format("You Win!");
         }
     }
     void SetScoreText()
