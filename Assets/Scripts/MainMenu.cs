@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour
 {
     public Button playButton;
     public Button quitButton;
-    public Button optionsButton;
-    public Button backButton;
+    //public Button optionsButton;
+    //public Button backButton;
 
     public GameObject mainMenu;
     public GameObject optionsMenu;
@@ -21,8 +21,8 @@ public class MainMenu : MonoBehaviour
     {
         playButton.onClick.AddListener(PlayMaze);
         quitButton.onClick.AddListener(QuitMaze);
-        optionsButton.onClick.AddListener(OpenOptionsMenu);
-        backButton.onClick.AddListener(OpenMainMenu);
+        //optionsButton.onClick.AddListener(OpenOptionsMenu);
+        //backButton.onClick.AddListener(OpenMainMenu);
     }
 
     void Update()
