@@ -9,12 +9,20 @@ public class MainMenu : MonoBehaviour
 {
     public Button playButton;
     public Button quitButton;
+    public Button optionsButton;
+    public Button backButton;
+
+    public GameObject mainMenu;
+    public GameObject optionsMenu;
+
 
      ///<summary>Initializing game from menu screen</summary>
     void Start()
     {
         playButton.onClick.AddListener(PlayMaze);
         quitButton.onClick.AddListener(QuitMaze);
+        optionsButton.onClick.AddListener(OpenOptionsMenu);
+        backButton.onClick.AddListener(OpenMainMenu);
     }
 
     void Update()
@@ -29,4 +37,16 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit Game");
     }
+        public void OpenOptionsMenu()
+    {
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+    public void OpenMainMenu()
+    {
+        optionsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    
 }
