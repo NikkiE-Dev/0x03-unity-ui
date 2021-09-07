@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
             winloseBG.color = UnityEngine.Color.green;
             winloseText.color = UnityEngine.Color.black;
             winloseText.text = string.Format("You Win!");
+            StartCoroutine(LoadScene(3));
         }
     }
     void SetScoreText()
