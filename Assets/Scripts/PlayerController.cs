@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             winloseBG.color = UnityEngine.Color.red;
             winloseText.color = UnityEngine.Color.white;
             winloseText.text = string.Format("Game Over!");
-            StartCoroutine(LoadScene(2));
+            StartCoroutine(LoadScene(3));
         }
     }
     void FixedUpdate()
